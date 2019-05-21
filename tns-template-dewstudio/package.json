@@ -1,16 +1,34 @@
 {
   "nativescript": {
     "id": "org.nativescript.tnstemplatedewstudio",
+    "templateVersion": "v2",
     "tns-android": {
-      "version": "5.3.1"
+      "version": "5.4.0"
     },
     "tns-ios": {
-      "version": "5.3.1"
+      "version": "5.4.0"
     }
   },
-  "description": "NativeScript Application",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "repository": "<fill-your-repository-here>",
+  "name": "tns-template-dewstudio",
+  "templateType": "App template",
+  "displayName": "Dew Studio Base Template",
+  "version": "1.0.0",
+  "description": "A template for Nativescript core - Typescript app from Dew Studio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreabbondanza/tns-template-dewstudio.git"
+  },
+  "homepage": "https://github.com/andreabbondanza/tns-template-dewstudio#readme",
+  "author": "Andrea Vincenzo Abbondanza",
+  "keywords": [
+    "dewstudio",
+    "nativescript",
+    "typescript",
+    "template",
+    "tns",
+    "{N}"
+  ],
   "dependencies": {
     "base-64": "^0.1.0",
     "dewlinq": "^1.0.0-rc.5",
