@@ -1,0 +1,25 @@
+.home-page{
+    background-color:rgb(255, 255, 255);
+}
+.color{
+    color:rgb(97, 97, 97);
+}
+.logo{
+    width:200;
+}
+
+.container{
+    text-align: center;
+    padding:20;
+}
+
+.scroll-container{
+    margin-top:20;
+    padding:10;
+}
+
+.login-container{
+    background-color:rgb(245,245,245);
+    padding:10;
+}
+

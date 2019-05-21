@@ -1,0 +1,85 @@
+<Page class="page home-page" navigatingTo="onNavigatingTo" xmlns="http://schemas.nativescript.org/tns.xsd">
+    <TabView id="tabViewContainer">
+        <TabViewItem title="Home">
+            <GridLayout rows="auto, auto, *, auto" class="container">
+                <Image src="res://logo" class="logo" stretch="aspectFit" />
+                <Label row="1" class="color" text="This is the base template we use to app development, it includes:" textWrap="true" />
+                <ScrollView class="scroll-container" row="2">
+                    <Repeater items="{{ items }}">
+                        <Repeater.itemsLayout>
+                            <StackLayout />
+                        </Repeater.itemsLayout>
+                        <Repeater.itemTemplate>
+                            <StackLayout>
+                                <Label class="color" text="{{$value}}" textWrap="true"></Label>
+                                <Label text="-"></Label>
+                            </StackLayout>
+                        </Repeater.itemTemplate>
+                    </Repeater>
+                </ScrollView>
+                <StackLayout row="3" class="login-container">
+                    <Label class="color" text="Simulate login example" />
+                    <Button text="{{loginText}}" tap="{{onLoginTap}}" />
+                    <Label class="color" text="{{model.nameHello}}" />
+                </StackLayout>
+            </GridLayout>
+        </TabViewItem>
+        <TabViewItem title="Utils">
+            <GridLayout rows="auto, auto, *" class="container">
+                <GridLayout rows="auto,auto,auto,auto">
+                    <Label text="TIMING" style="font-size:20"></Label>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label text="Current state: " />
+                        <Label text="{{state}}" />
+                    </StackLayout>
+                    <Label style="text-align:left" text="Try the timeout or repeat by pressing buttons" row="2"></Label>
+                    <GridLayout rows="auto, auto" row="3" columns="*, *, *">
+                        <Button row="1" text="Timeout" Tap="{{onTimeoutTap}}"></Button>
+                        <Button row="1" text="Repeat" col="1" Tap="{{onRepeatTap}}"></Button>
+                    </GridLayout>
+                </GridLayout>
+                <GridLayout rows="auto,auto, auto" row="1">
+                    <Label text="ERRORS" style="font-size:20"></Label>
+                    <StackLayout row="1" orientation="horizontal">
+                        <Label text="Launched exception: "></Label>
+                        <Label text="{{exceptionType}}"></Label>
+                    </StackLayout>
+                    <GridLayout row="2" columns="*, *">
+                        <Button text="Launch First" tap="{{onFirstExceptionTap}}"></Button>
+                        <Button col="1" text="Launch Second" tap="{{onSecondExceptionTap}}"></Button>
+                    </GridLayout>
+                </GridLayout>
+            </GridLayout>
+        </TabViewItem>
+        <TabViewItem title="Web">
+            <TabViewItem.view>
+                 <GridLayout row="2" rows="auto, *" class="container">
+                    <Button text="Rest Request" tap="{{onRestRequestTap}}"></Button>
+                    <ListView row="1" items="{{ restItems }}">
+                        <ListView.itemTemplate>
+                            <StackLayout>
+                                <StackLayout orientation="horizontal">
+                                    <Label text="User ID: "></Label>
+                                    <Label text="{{userId}}"></Label>    
+                                </StackLayout>
+                                <StackLayout orientation="horizontal">
+                                    <Label text="Item ID: "></Label>
+                                    <Label text="{{id}}"></Label>    
+                                </StackLayout>
+                                <StackLayout orientation="horizontal">
+                                    <Label text="Title: "></Label>
+                                    <Label text="{{title}}"></Label>
+                                </StackLayout>
+                                <StackLayout orientation="horizontal">
+                                    <Label text="Completed: "></Label>
+                                    <Label text="{{completed}}"></Label>
+                                </StackLayout>                                
+                                <Label text="-"></Label>
+                            </StackLayout>
+                        </ListView.itemTemplate>
+                    </ListView>
+                </GridLayout>
+            </TabViewItem.view>
+        </TabViewItem>
+    </TabView>
+</Page>
