@@ -27,7 +27,7 @@ export class Timing
      * @param callback the callback to execute
      * @param ms time in ms
      */
-    public static async repeat(callback: (handler: number) => void, ms: number): Promise<void>
+    public static async repeat(callback: (handler: number) => void, ms: number): Promise<{}>
     {
         return new Promise((r, j) =>
         {
