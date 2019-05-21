@@ -1,8 +1,8 @@
 # NativeScript
-
+hooks/*
 node_modules/
 platforms/
-
+!hooks/after-createProject/after-createProject.js
 # NativeScript Template
 *.js.map
 *.js
