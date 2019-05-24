@@ -11,6 +11,19 @@ This template collect objects and stuff that we have found useful during our app
 
 Lets see what we are talking about.
 
+# How to use the template
+
+Actually in the __app-root.xml__ the default page points to home (template presentation and example page). You should point to __start__ changing the default page in root.
+
+The home page is only as example for the use of template functions.
+
+### Install
+
+```bash
+tns create appname --template tns-template-dewstudio
+```
+
+
 ### Custom Model
 
 We created a custom Model, the DewModel that should be extended by all App models because it contains some utils stuff, like the __CopyFromObject__ methods.
@@ -355,11 +368,6 @@ The __RestResponse__ is of type T (TNSHttpFormDataResponse or HttpResponse) and 
 
 When you use the toStandardResponse/Data method this is transparent.
 
-# How to use the template
-
-Actually in the __app-root.xml__ the default page points to home (template presentation and example page). You should point to __start__ changing the default page in root.
-
-The home page is only as example for the use of template functions.
 
 ## Note
 
