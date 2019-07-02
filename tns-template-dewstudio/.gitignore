@@ -7,7 +7,7 @@ platforms/
 *.js.map
 *.js
 !webpack.config.js
-
+/.migration_backup
 # Logs
 logs
 *.log
