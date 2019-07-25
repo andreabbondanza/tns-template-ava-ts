@@ -3,10 +3,10 @@
     "id": "org.nativescript.tnstemplatedewstudio",
     "templateVersion": "v2",
     "tns-android": {
-      "version": "6.0.0-rc-2019-06-27-172817-03"
+      "version": "6.0.0"
     },
     "tns-ios": {
-      "version": "6.0.0-rc-2019-06-28-105002-01"
+      "version": "6.0.1"
     }
   },
   "name": "tns-template-dewstudio",
@@ -35,12 +35,12 @@
     "dewstrings": "^1.0.0",
     "nativescript-http-formdata": "^1.6.0",
     "nativescript-theme-core": "~1.0.4",
-    "tns-core-modules": "6.0.0-rc-2019-06-28-175837-02",
+    "tns-core-modules": "6.0.1",
     "utf8": "^3.0.0"
   },
   "devDependencies": {
     "nativescript-dev-webpack": "^1.0.0-rc-2019-06-28-134050-01",
-    "typescript": "3.4.1"
+    "typescript": "3.4.5"
   },
   "gitHead": "803cec054c44c99eaa59cdc267993e6346f6cb3a",
   "readme": "NativeScript Application"
