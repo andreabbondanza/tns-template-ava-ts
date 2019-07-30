@@ -1,3 +1,5 @@
+import { setInterval, clearInterval, clearTimeout, setTimeout } from "tns-core-modules/timer";
+
 /**
  * Utils class
  */
