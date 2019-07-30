@@ -22,6 +22,7 @@ The home page is only as example for the use of template functions.
 ```bash
 tns create appname --template tns-template-dewstudio
 ```
+#### NOTE: After NS6 update seems that tsconfig.json is not generated, I'm working on it, for now you should generate with tsc --init or copy from another porject
 
 ### Custom Model
 
