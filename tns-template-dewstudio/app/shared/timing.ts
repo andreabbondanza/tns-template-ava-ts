@@ -10,9 +10,12 @@ export class Timing
      * Delay for a time
      * @param ms time in milliseconds
      */
-    public static async delay(ms: number)
+    public static async delay(ms: number): Promise<number>
     {
-        return new Promise((r, j) => setTimeout(r, ms));
+        return new Promise((r, j) =>
+        {
+            const t = setTimeout(() => { r(t) }, ms)
+        });
     }
     /**
      * Execute a callback after the time
@@ -21,8 +24,9 @@ export class Timing
      */
     public static async timeout(callback: () => void, ms: number): Promise<void>
     {
-        await Timing.delay(ms);
+        const t = await Timing.delay(ms);
         callback();
+        return t;
     }
     /**
      * Repeat a callback that get the handler
