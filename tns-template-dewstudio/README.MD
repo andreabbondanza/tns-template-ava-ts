@@ -1,7 +1,7 @@
-# Dew Studio template for Nativescript
+# Andrea Vincenzo Abbondanza template for Nativescript
 
-In Dew Studio we love Nativescript and we're adopting it for our Apps.
-We also have created a base project where we can start for every app we're building.
+Hi, I love Nativescript and I'm adopting it for my Apps.
+I've also have created a base project where we can start for every app we're building.
 
 In this case, I've thought that it can be useful also for other people.
 
@@ -13,31 +13,33 @@ Lets see what we are talking about.
 
 # How to use the template
 
-Actually in the __app-root.xml__ the default page points to home (template presentation and example page). You should point to __start__ changing the default page in root.
+Actually in the **app-root.xml** the default page points to home (template presentation and example page). You should point to **start** changing the default page in root.
 
 The home page is only as example for the use of template functions.
 
 ### Install
 
 ```bash
-tns create appname --template tns-template-dewstudio
+tns create appname --template tns-template-ava
 ```
+
 #### NOTE: After NS6 update seems that tsconfig.json is not generated, I'm working on it, for now you should generate with tsc --init or copy from another porject
 
 ### Custom Model
 
-We created a custom Model, the DewModel that should be extended by all App models because it contains some utils stuff, like the __CopyFromObject__ methods.
+We created a custom Model, the AvaModel that should be extended by all App models because it contains some utils stuff, like the **CopyFromObject** methods.
 
 This method allows you to copy and create an object of type T and resolve the problem of json object to typescript object, see [this](https://www.andrewdev.eu/web/typescript-object-vs-javascript-object/) for more information.
 
 Example:
 
 ```typescript
-class Mytype extends DewModel
-{
-    public name: string = "";
-    public surname: string = "";
-    public get fullName(){ return this.name + " " + this.surname }
+class Mytype extends AvaModel {
+  public name: string = "";
+  public surname: string = "";
+  public get fullName() {
+    return this.name + " " + this.surname;
+  }
 }
 
 const json = { name: "Andrew", surname: "Keller" };
@@ -51,12 +53,13 @@ console.log(myObject1.fullName); // <--- works fine
 
 ### Custom View Model
 
-We created a custom ViewModel, the DewViewModel that should be extended by all App viewmodels because it contains some utils stuff, like __npc__ function or the __TokenManager__ (see Token Manager bottom).
+We created a custom ViewModel, the AvaViewModel that should be extended by all App viewmodels because it contains some utils stuff, like **npc** function or the **TokenManager** (see Token Manager bottom).
 
 #### npc
 
 npc function is a short way to notify that property is changed to the interface.
 For example:
+
 ```typescript
 // set values
 this.myProp = 2;
@@ -71,46 +74,42 @@ this.notifyPropertyChange("myProp2", this.myProp2);
 
 this.npc("myProp");
 // or
-this.npc(["myProp1","myProp2"]);
+this.npc(["myProp1", "myProp2"]);
 ```
 
-You have also access to a __TokenManager__ that is useful to manage jwt access tokens for the app. You will see how it works bottom.
+You have also access to a **TokenManager** that is useful to manage jwt access tokens for the app. You will see how it works bottom.
 
 ### CSS
 
 We have a class to manage CSS classes on view objects, I created this because is really useful for animations.
 
 The class implements 4 methods:
-- HasClass(_view_:__View__, _className_:__string__): check if _view_ has __className_ in list
-- AddClass(_view_:__View__, _className_:__string__): add the _className_ to object 
-- RemoveClass(_view_:__View__, _className_:__string__): remove the _className_ from object 
-- SwapClass(_view_:__View__, _className1_:__string__, _className2_:__string__): Execute a swap between two classes or add the first if none extists
+
+- HasClass(_view_:**View**, _className_:**string**): check if _view_ has \__className_ in list
+- AddClass(_view_:**View**, _className_:**string**): add the _className_ to object
+- RemoveClass(_view_:**View**, _className_:**string**): remove the _className_ from object
+- SwapClass(_view_:**View**, _className1_:**string**, _className2_:**string**): Execute a swap between two classes or add the first if none extists
 
 ### Errors
 
-I've also introduced a type of __Error__, __DewError__ that can be used to create custom Errors.
+I've also introduced a type of **Error**, **AvaError** that can be used to create custom Errors.
 
-The reason we don't simply extends the __Error__ class is that the name and type will be always of the root error type. For example if I check the typeof or the name of __MyError__ that extends __TypeError__ the result will be always __TypeError__
+The reason we don't simply extends the **Error** class is that the name and type will be always of the root error type. For example if I check the typeof or the name of **MyError** that extends **TypeError** the result will be always **TypeError**
 
 In this case we can throw a custom error, like this:
 
 ```typescript
-try{
-    if(something)
-        dostuff
-    else
-        throw new DewError("notSomething", "something is false");
-}
-catch(err)
-{
-    if(err.name === "notSomething")
-    {
-        console.log(err.message);
-    }
+try {
+  if (something) dostuff;
+  else throw new AvaError("notSomething", "something is false");
+} catch (err) {
+  if (err.name === "notSomething") {
+    console.log(err.message);
+  }
 }
 ```
 
-in the __RestClient__ section you can see also how to use better this way to manage errors.
+in the **RestClient** section you can see also how to use better this way to manage errors.
 
 ### Config
 
@@ -118,7 +117,7 @@ It is just a file with global constants for api keys and stuff like this.
 
 ### Debugger
 
-The debugger class is used to create logs that depends from a __Debugger__ setting, in this way you can set it in production to __false__ (I suggest you in the _app.ts_ file).
+The debugger class is used to create logs that depends from a **Debugger** setting, in this way you can set it in production to **false** (I suggest you in the _app.ts_ file).
 
 For example:
 
@@ -140,88 +139,81 @@ Another utils class is the Timing class that provides function for delays and in
 // delay of 5000 ms
 await Timing.delay(5000);
 // timeout
-await Timing.timeout(
-    () => {
-        dialogs.alert("5000 seconds passed");
-    }, 
-    5000
-);
+await Timing.timeout(() => {
+  dialogs.alert("5000 seconds passed");
+}, 5000);
 // repeat every second
 let i = 0;
 await Timing.repeat((handler: number) => {
-        i++;
-        if(i > 10)
-            Timing.clearRepeat(handler);
-    },
-    1000
-);
+  i++;
+  if (i > 10) Timing.clearRepeat(handler);
+}, 1000);
 ```
 
 ### User management via token
 
-This template implements a system for user management via __jwt token__ (more info [here](https://jwt.io/))
-where our __payload__ is the _IToken_ implmeneted interface:
+This template implements a system for user management via **jwt token** (more info [here](https://jwt.io/))
+where our **payload** is the _IToken_ implmeneted interface:
+
 ```typescript
 // Generic token interface
-interface IToken
-{
-    idUser: number;
-    updated: string;
-    created: string;
-    expired: string;
-    userName: string;
-    email: string;
-    // separated by commas
-    types: string;
-    // separated by commas
-    claims: string;
+interface IToken {
+  idUser: number;
+  updated: string;
+  created: string;
+  expired: string;
+  userName: string;
+  email: string;
+  // separated by commas
+  types: string;
+  // separated by commas
+  claims: string;
 }
 // token implementation
-export class Token implements IToken
-{
-    public idUser: number = 0;
-    public updated: string = "";
-    public created: string = "";
-    public expired: string = "";
-    public userName: string = "";
-    public email: string = "";
-    public types: string = "";
-    public claims: string = "";
+export class Token implements IToken {
+  public idUser: number = 0;
+  public updated: string = "";
+  public created: string = "";
+  public expired: string = "";
+  public userName: string = "";
+  public email: string = "";
+  public types: string = "";
+  public claims: string = "";
 }
 ```
 
-you can extend token, but the __TokenManager__ class needs the implementation of _IToken_ to works well.
+you can extend token, but the **TokenManager** class needs the implementation of _IToken_ to works well.
 
-The __TokenManager__ class in fact needs, for some of its functions, of properties of _IToken_.
+The **TokenManager** class in fact needs, for some of its functions, of properties of _IToken_.
 
 Let see how it works.
 
 #### Token manager
 
-The Token Manager works with __application settings__ and has methods to load, unload, check roles/claims etc.
+The Token Manager works with **application settings** and has methods to load, unload, check roles/claims etc.
 
-The most important methors are: 
+The most important methors are:
 
-- setToken(_token_:__string__): set the token into local storage
+- setToken(_token_:**string**): set the token into local storage
 - unsetToken(): delete the token from local storage
-- loadLocalToken() -> __boolean__ : load token and return true if loaded, false else
+- loadLocalToken() -> **boolean** : load token and return true if loaded, false else
 
 With this three methods we can manage the token's lifecycle in our app.
 
 We also have:
 
 - isAdmin(): you should customize this to map it with claims/types admin roles
-- hasClaim(_claim_: __ClaimsTypes__): check if the claim is contained into the claims
-- hasRole(_role_: __RolesTypes__): check if the role is contained into the types
-- getTokenObject() -> __IToken__: return the direct IToken object
+- hasClaim(_claim_: **ClaimsTypes**): check if the claim is contained into the claims
+- hasRole(_role_: **RolesTypes**): check if the role is contained into the types
+- getTokenObject() -> **IToken**: return the direct IToken object
 
 Let see an example of the token use:
 
 ```typescript
-export class ViewModel extends DewViewModel {
+export class ViewModel extends AvaViewModel {
     constructor()
     {
-        super();        
+        super();
     }
 
     public async pageLoaded()
@@ -240,10 +232,11 @@ export class ViewModel extends DewViewModel {
         else
         {
             // navigate to login page
-        }        
+        }
     }
 }
 ```
+
 An example of login
 
 ```typescript
@@ -273,46 +266,40 @@ For Nativescript I've created a simil (but with less functions for now) library 
 My first approach is about the response. All my API works with this type of response
 
 ```typescript
-export default class StandardResponse<T>{
-    public data: T;
-    public errorMessage!: string;
-    public error: StandardError = new StandardError();
+export default class StandardResponse<T> {
+  public data: T;
+  public errorMessage!: string;
+  public error: StandardError = new StandardError();
 }
 
-class StandardError
-{
-    public desc: string = "";
-    public number: number = 0;
+class StandardError {
+  public desc: string = "";
+  public number: number = 0;
 }
 ```
 
 And actually I use two types of Error for this client:
 
 ```typescript
-export enum RestClientErrors
-{
-    HttpError = "HttpError",
-    HttpErrorM = "HttpErrorM"
+export enum RestClientErrors {
+  HttpError = "HttpError",
+  HttpErrorM = "HttpErrorM",
 }
 
-export class HttpError extends DewError
-{
-    public constructor(resp: RestResponse<HttpResponse>)
-    {
-        super(RestClientErrors.HttpError, resp.Response.statusCode.toString());
-        this.response = resp;
-    }
-    public response: RestResponse<HttpResponse>;
+export class HttpError extends AvaError {
+  public constructor(resp: RestResponse<HttpResponse>) {
+    super(RestClientErrors.HttpError, resp.Response.statusCode.toString());
+    this.response = resp;
+  }
+  public response: RestResponse<HttpResponse>;
 }
 
-export class HttpErrorM extends DewError
-{
-    public constructor(resp: RestResponse<TNSHttpFormDataResponse>)
-    {
-        super(RestClientErrors.HttpErrorM, resp.Response.statusCode.toString());
-        this.response = resp;
-    }
-    public response: RestResponse<TNSHttpFormDataResponse>;
+export class HttpErrorM extends AvaError {
+  public constructor(resp: RestResponse<TNSHttpFormDataResponse>) {
+    super(RestClientErrors.HttpErrorM, resp.Response.statusCode.toString());
+    this.response = resp;
+  }
+  public response: RestResponse<TNSHttpFormDataResponse>;
 }
 ```
 
@@ -351,24 +338,23 @@ public async onRestRequestTap(args: EventData)
 }
 ```
 
-This code show how make a GET request with the __RestClient__.
+This code show how make a GET request with the **RestClient**.
 
 The steps are simply, you create a client, you make the request (you can also pass headers).
 
-After this, you have the __RestResponse__ object and now you can use two functions:
+After this, you have the **RestResponse** object and now you can use two functions:
 
-- toStandardResponseData<T>(): return a __StandardResponse__ with the result of request is assigned as T into the data property
-- toStandardRepsonse<T>(): return a __StandardResponse__ created by the result of the request (the server return to us a StandardResponse like object)
+- toStandardResponseData<T>(): return a **StandardResponse** with the result of request is assigned as T into the data property
+- toStandardRepsonse<T>(): return a **StandardResponse** created by the result of the request (the server return to us a StandardResponse like object)
 
 #### Multipart form data
 
-Actually this RestClient implements a __POST__ method from the Nativescript library and a __POST MULTIPART FORM DATA__ by the library [nativescript-http-formdata](https://github.com/dotnetdreamer/nativescript-http-formdata).
+Actually this RestClient implements a **POST** method from the Nativescript library and a **POST MULTIPART FORM DATA** by the library [nativescript-http-formdata](https://github.com/dotnetdreamer/nativescript-http-formdata).
 
-The __RestResponse__ is of type T (TNSHttpFormDataResponse or HttpResponse) and you can access to response via __response__ property.
+The **RestResponse** is of type T (TNSHttpFormDataResponse or HttpResponse) and you can access to response via **response** property.
 
 When you use the toStandardResponse/Data method this is transparent.
 
 ## Note
 
 Actually the template install by default the [dewlinq](https://github.com/andreabbondanza/dewlinq) and [dewstrings](https://github.com/andreabbondanza/dew-strings) libraries.
-
