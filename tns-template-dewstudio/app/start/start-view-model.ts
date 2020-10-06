@@ -1,9 +1,7 @@
-import { DewViewModel } from '~/shared/dewViewModel';
+import { AvaViewModel } from "~/shared/dewViewModel";
 
-export class StartViewModel extends DewViewModel
-{
-    public constructor()
-    {
+export class StartViewModel extends AvaViewModel {
+    public constructor() {
         super();
     }
- }
+}

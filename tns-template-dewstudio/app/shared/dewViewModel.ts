@@ -2,7 +2,7 @@ import { Observable } from "@nativescript/core/data/observable";
 
 import { TokenManager } from "./tokenManager";
 
-export class DewViewModel extends Observable {
+export class AvaViewModel extends Observable {
     protected tManager: TokenManager = new TokenManager();
 
     constructor() {

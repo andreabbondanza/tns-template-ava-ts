@@ -1,15 +1,15 @@
-import { DewViewModel } from "../shared/dewViewModel";
+import { AvaViewModel } from "../shared/dewViewModel";
 import HomeModel, { HomeItem } from "./home-model";
 
 import { Timing } from "~/shared/timing";
-import { DewError } from "~/shared/errors";
+import { AvaError } from "~/shared/errors";
 import { RestClientErrors, HttpError, RestClient } from "~/shared/restClient";
 import { Debugger } from "~/shared/debugger";
 import { ObservableArray } from "@nativescript/core/data/observable-array";
 import * as dialogs from "@nativescript/core/ui/dialogs";
 import { EventData } from "@nativescript/core/data/observable";
 
-export class HomeViewModel extends DewViewModel {
+export class HomeViewModel extends AvaViewModel {
     private _loginState: boolean = false;
     private _restItems: HomeItem[] = [];
 
@@ -44,7 +44,7 @@ export class HomeViewModel extends DewViewModel {
 
     public onFirstExceptionTap(args: EventData) {
         try {
-            throw new DewError("First Exception", "Bla bla bla");
+            throw new AvaError("First Exception", "Bla bla bla");
         } catch (error) {
             this.exceptionType = error.name;
             this.npc("exceptionType");
@@ -53,7 +53,7 @@ export class HomeViewModel extends DewViewModel {
 
     public onSecondExceptionTap(args: EventData) {
         try {
-            throw new DewError("Second Exception", "Bla bla bla");
+            throw new AvaError("Second Exception", "Bla bla bla");
         } catch (error) {
             this.exceptionType = error.name;
             this.npc("exceptionType");

@@ -10,7 +10,7 @@ import {
 } from "nativescript-http-formdata";
 
 import { Debugger as _ } from "./debugger";
-import { DewError } from "./errors";
+import { AvaError } from "./errors";
 
 export default class StandardResponse<T> {
     public data: T;
@@ -30,7 +30,7 @@ export enum RestClientErrors {
     HttpErrorM = "HttpErrorM",
 }
 
-export class HttpError extends DewError {
+export class HttpError extends AvaError {
     public constructor(resp: RestResponse<HttpResponse>) {
         super(RestClientErrors.HttpError, resp.response.statusCode.toString());
         this.response = resp;
@@ -38,7 +38,7 @@ export class HttpError extends DewError {
     public response: RestResponse<HttpResponse>;
 }
 
-export class HttpErrorM extends DewError {
+export class HttpErrorM extends AvaError {
     public constructor(resp: RestResponse<TNSHttpFormDataResponse>) {
         super(RestClientErrors.HttpErrorM, resp.response.statusCode.toString());
         this.response = resp;
