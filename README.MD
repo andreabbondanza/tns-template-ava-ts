@@ -23,8 +23,6 @@ The home page is only as example for the use of template functions.
 tns create appname --template tns-template-ava-ts
 ```
 
-#### NOTE: After NS6 update seems that tsconfig.json is not generated, I'm working on it, for now you should generate with tsc --init or copy from another porject
-
 ### Custom Model
 
 We created a custom Model, the AvaModel that should be extended by all App models because it contains some utils stuff, like the **CopyFromObject** methods.

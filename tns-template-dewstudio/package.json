@@ -2,7 +2,7 @@
   "name": "tns-template-ava-ts",
   "templateType": "App template",
   "displayName": "Andrea Vincenzo Abbondanza Nativescript Base Template",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "A template for Nativescript core - Typescript app from Andrea Vincenzo Abbondanza",
   "license": "MIT",
   "repository": {
@@ -19,6 +19,9 @@
     "tns",
     "{N}"
   ],
+  "scripts": {
+    "postinstall": "node ./scripts/postinstall.js"
+  },
   "dependencies": {
     "base-64": "^0.1.0",
     "dewlinq": "^1.0.0-rc.5",
@@ -35,5 +38,12 @@
   },
   "gitHead": "803cec054c44c99eaa59cdc267993e6346f6cb3a",
   "readme": "NativeScript Application",
-  "main": "app.js"
+  "main": "app.js",
+  "files": [
+    "scripts",
+    "app",
+    "tsfmt.json",
+    "nativescript.config.ts",
+    ".editorconfig"
+  ]
 }
