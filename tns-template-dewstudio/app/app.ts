@@ -4,10 +4,10 @@ You can use this file to perform app-level initialization, but the primary
 purpose of the file is to pass control to the app’s first module.
 */
 
-import * as app from "tns-core-modules/application";
+import * as app from "@nativescript/core/application";
 import initStrings from "dewstrings";
 import initLinq from "dewlinq";
-import { Debugger } from './shared/debugger';
+import { Debugger } from "./shared/debugger";
 
 initStrings();
 initLinq();

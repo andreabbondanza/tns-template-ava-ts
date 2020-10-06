@@ -1,27 +1,22 @@
-import { Observable, View } from 'tns-core-modules/ui/page/page';
+import { Observable } from "@nativescript/core/data/observable";
 
-import { TokenManager } from './tokenManager';
+import { TokenManager } from "./tokenManager";
 
-export class DewViewModel extends Observable
-{
+export class DewViewModel extends Observable {
     protected tManager: TokenManager = new TokenManager();
-    
-    constructor()
-    {
+
+    constructor() {
         super();
     }
     /**
      * Notify changes for a property
      * @param props array with props to notify
      */
-    public npc(prop: string | string[]): void
-    {
+    public npc(prop: string | string[]): void {
         if (typeof prop === "string")
             this.notifyPropertyChange(prop, this.get(prop));
-        else
-        {
-            prop.forEach(item =>
-            {
+        else {
+            prop.forEach((item) => {
                 this.notifyPropertyChange(item, this.get(item));
             });
         }
