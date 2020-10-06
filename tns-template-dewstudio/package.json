@@ -1,5 +1,5 @@
 {
-  "name": "tns-template-ava",
+  "name": "tns-template-ava-ts",
   "templateType": "App template",
   "displayName": "Andrea Vincenzo Abbondanza Nativescript Base Template",
   "version": "1.0.0",
@@ -7,9 +7,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/andreabbondanza/tns-template-ava.git"
+    "url": "git+https://github.com/andreabbondanza/tns-template-ava-ts.git"
   },
-  "homepage": "https://github.com/andreabbondanza/tns-template-ava#readme",
+  "homepage": "https://github.com/andreabbondanza/tns-template-ava-ts#readme",
   "author": "Andrea Vincenzo Abbondanza",
   "keywords": [
     "dewstudio",
